@@ -45,9 +45,8 @@
 
 .dog-image-container {
   position: fixed;
-  left: -300px;
+  left: -360px;
   bottom: 80px;
-  z-index: 1001;
 }
 
 .dog-image {
