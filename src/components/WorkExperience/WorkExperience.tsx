@@ -53,7 +53,6 @@ export const WorkExperience = () => {
               <div className="experience-content">
                 <div className="experience-marker">
                   <div className="experience-dot">
-                    <span className="experience-icon">{exp.icon}</span>
                   </div>
                   {index !== experiences.length - 1 && (
                     <div className="experience-line" />
