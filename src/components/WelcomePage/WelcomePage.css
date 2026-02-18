@@ -32,7 +32,7 @@
 
 .peeking-image-wrapper {
   position: absolute;
-  right: 0;
+  right: -57px;
   top: 50%;
   transform: translateY(-50%);
   overflow: hidden;
@@ -120,11 +120,5 @@
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-  }
-
-  .dog-chat-wrapper {
-    position: relative;
-    right: auto;
-    top: auto;
   }
 }

@@ -16,8 +16,9 @@ export const About = () => {
                 src={kmuniImg} 
                 alt="Karishma"
                 fill
-                style={{ objectFit: 'cover', borderRadius: '1rem' }}
-                priority 
+                quality={90}
+                style={{ objectFit: 'cover' }}
+                priority
               />
             </div>
           </div>

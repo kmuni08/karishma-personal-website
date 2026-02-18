@@ -5,27 +5,6 @@
   overflow: hidden;
 }
 
-@keyframes experienceOrb1 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(-80px, 50px) scale(1.25);
-    opacity: 0.8;
-  }
-}
-
-@keyframes experienceOrb2 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate(80px, -50px) scale(1.2);
-    opacity: 0.7;
-  }
-}
 
 .work-experience-section .work-experience-container {
   max-width: 900px;
@@ -341,9 +320,6 @@
   font-size: 1.5rem;
 }
 
-.work-experience-section .experience-item:first-child .experience-marker .experience-dot {
-  animation: dotPulse 2.5s ease-in-out infinite;
-}
 
 @keyframes dotPulse {
   0%, 100% {

@@ -2,28 +2,26 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import dog from './dog.gif';
-import exit2 from './exit2.png';
-import exit3 from './exit3.png';
+import bellyRub from './bellyRub.png';
+import sillyFace from './sillyFace.png';
 import { DogChat } from '../DogChat/DogChat';
 import './WelcomePage.css';
 
+type Phase = 'normal' | 'belly' | 'face';
+
+const imageByPhase: Record<Phase, typeof dog> = {
+  normal: dog,
+  belly: bellyRub,
+  face: sillyFace,
+};
+
 export const WelcomePage = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [dogPhase, setDogPhase] = useState<'normal' | 'belly' | 'face'>('normal');
-  const images = [dog, exit2, exit3];
+  const [dogPhase, setDogPhase] = useState<Phase>('normal');
 
   useEffect(() => {
-    const t1 = setTimeout(() => {
-      setCurrentImage(1);
-      setDogPhase('belly');
-    }, 40000);
-    return () => { clearTimeout(t1); };
+    const t = setTimeout(() => setDogPhase('belly'), 40000);
+    return () => clearTimeout(t);
   }, []);
-
-  const handleDoneWithPets = () => {
-    setCurrentImage(2);
-    setDogPhase('face');
-  };
 
   const isPeeking = dogPhase === 'belly' || dogPhase === 'face';
 
@@ -35,9 +33,9 @@ export const WelcomePage = () => {
           <div className="dog-image-wrapper">
             <Image
               src={dog}
-              alt="welcome dog"
+              alt="Welcome dog"
               className="welcome-dog-gif phase-normal"
-              unoptimized={true}
+              unoptimized
             />
           </div>
         )}
@@ -45,23 +43,23 @@ export const WelcomePage = () => {
         {isPeeking && (
           <div className="peeking-image-wrapper">
             <Image
-              src={images[currentImage]}
-              alt="welcome dog"
+              src={imageByPhase[dogPhase]}
+              alt="Welcome dog"
               className={`welcome-dog-gif phase-${dogPhase}`}
-              unoptimized={true}
+              unoptimized
             />
           </div>
         )}
 
         {dogPhase === 'belly' && (
           <div className="peeking-btn-wrapper">
-            <button className="done-with-pets-btn" onClick={handleDoneWithPets}>
+            <button className="done-with-pets-btn" onClick={() => setDogPhase('face')}>
               Done with pets
             </button>
           </div>
         )}
 
-        <DogChat phase={dogPhase} key={dogPhase} noTail={isPeeking} />
+        <DogChat phase={dogPhase} key={dogPhase} />
 
       </div>
     </section>

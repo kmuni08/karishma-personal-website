@@ -43,31 +43,29 @@
   opacity: 0;
 }
 
+.dog-image-container {
+  position: fixed;
+  left: -300px;
+  bottom: 80px;
+  z-index: 1001;
+}
+
 .dog-image {
   width: 700px;
   height: auto;
   border-radius: 16px;
-  transition: transform 0.3s ease;
-  animation: dogFloat 3s ease-in-out infinite;
-}
-
-@keyframes dogFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
 }
 
 @media (max-width: 768px) {
-  .paw-prints-container { 
-    width: 80px; 
-    left: 10px; 
+  .paw-prints-container {
+    width: 80px;
+    left: 10px;
   }
-  .paw-print::before { 
-    font-size: 2.5rem; 
+
+  .paw-print::before {
+    font-size: 2.5rem;
   }
+
   .dog-image {
     width: 160px;
   }

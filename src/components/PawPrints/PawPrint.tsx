@@ -3,11 +3,18 @@ import './PawPrint.css';
 import chloeImage from '../assets/chloe.png';
 import Image from 'next/image';
 
+const sections = [
+  { selector: '#about',                    name: 'about' },
+  { selector: '.work-experience-section',  name: 'work' },
+  { selector: '.volunteer-cards-section',  name: 'volunteer' },
+  { selector: '#contact',                  name: 'contact' },
+];
+
 export const PawPrints = ({ children }: { children: React.ReactNode }) => {
   const [pawPrints, setPawPrints] = useState<any[]>([]);
   const [currentSection, setCurrentSection] = useState('');
   const [lastScrollTime, setLastScrollTime] = useState(Date.now());
-  
+
   const pawCounterRef = useRef(0);
   const lastScrollPositionRef = useRef(0);
 
@@ -16,40 +23,31 @@ export const PawPrints = ({ children }: { children: React.ReactNode }) => {
       const scrollPosition = window.scrollY;
       const scrollDelta = Math.abs(scrollPosition - lastScrollPositionRef.current);
 
-      const sections = [
-        { id: 'about', name: 'about' },
-        { selector: '.work-experience-section', name: 'work' },
-        { selector: '.volunteer-cards-section', name: 'volunteer' },
-        { id: 'contact', name: 'contact' },
-      ];
-      
       let currentSectionName = '';
-      sections.forEach(section => {
-        const element = section.id ? document.getElementById(section.id) : document.querySelector(section.selector!);
+      sections.forEach(({ selector, name }) => {
+        const element = document.querySelector(selector);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 400 && rect.bottom >= 100) currentSectionName = section.name;
+          if (rect.top <= 400 && rect.bottom >= 100) currentSectionName = name;
         }
       });
 
       setCurrentSection(currentSectionName);
-      
-      if (!currentSectionName) {
-        setPawPrints([]);
-      }
-      
+
+      if (!currentSectionName) setPawPrints([]);
+
       if (scrollDelta > 5) setLastScrollTime(Date.now());
 
       if (scrollDelta > 200 && currentSectionName) {
         const viewportHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
         const scrollPercentage = (scrollPosition / (documentHeight - viewportHeight)) * 100;
-        
+
         const newPaw = {
           id: pawCounterRef.current++,
           top: `${Math.min(scrollPercentage, 95)}%`,
           section: currentSectionName,
-          rotation: Math.random() * 30 - 15 
+          rotation: Math.random() * 30 - 15,
         };
 
         setPawPrints(prev => [...prev, newPaw].slice(-5));
@@ -82,18 +80,18 @@ export const PawPrints = ({ children }: { children: React.ReactNode }) => {
             style={{
               top: paw.top,
               animationDelay: `${index * 0.1}s`,
-              '--rotation': `${paw.rotation}deg`
-            } as any}
+              '--rotation': `${paw.rotation}deg`,
+            } as React.CSSProperties}
           />
         ))}
       </div>
-      
+
       {showDog && (
-        <div className="dog-image-container" style={{ position: 'fixed', left: '-300px', bottom: '80px', zIndex: 1001 }}>
+        <div className="dog-image-container">
           <Image src={chloeImage} alt="Chloe" className="dog-image" priority />
         </div>
       )}
-      
+
       {children}
     </div>
   );

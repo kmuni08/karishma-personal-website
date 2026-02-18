@@ -10,9 +10,10 @@ export const WorkExperience = () => {
       achievements: [
         "I've been one of the integral engineers rewriting the training in the UI, and both backends (Python and Java) for internal use and client development learning.",
         "I upgraded, designed and implemented the Operation Subledger application which is currently used by 2 long time clients.",
+        "I successfully delivered over 10 project implementation projects which went live in production with excellent feedback from the clients. 5 were UI projects, 1 was a Python project and 4 were Java projects.",
         "I worked on project support for clients utilizing the Atoti Python API and Atoti Java API including FRTB, CVARC and Market Risk Solutions in conjunction with SignOff and Limits",
         "I assisted clients with product support or 'how-tos' for their use cases",
-        "I successfully delivered over 5 project implementation projects which went live in production with excellent feedback from the clients. 3 were UI projects and 2 were Java projects."
+        "I've become a trusted advisor for all my clients  and resolved their issues in a timely manner."
       ]
     },
     {
