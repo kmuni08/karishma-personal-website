@@ -1,0 +1,49 @@
+{
+  "identity": {
+    "education": "Queens College (Mathematics and Computer Science focus), Hunter College (Computer Science and Pre Medicine)",
+    "mission": "Utilizing the available tools out there to make a genuine and positive impact on the world. I am currently upskilling on the trends like Artificial Intelligence while also ensuring my programming and communication skills stay in tact."
+  },
+  "professional_experience": {
+    "frontend_development": "5 years",
+    "python": "4 years",
+    "java": "2 years",
+    "recent_focus": "Large Language Models, Artificial Intelligence, and optimizing performance in React and Next.js projects."
+  },
+  "technical_interests": [
+    "Docker/Kubernetes",
+    "RAG models, LLMs and AI Agents",
+    "React/NextJS/TypeScript",
+    "Python",
+    "Working with Large Datasets"
+  ],
+  "projects_and_work": [
+    {
+      "area": "ActiveViam",
+      "highlights": ["Successfully assisted clients or implemented 20+ project upgrades which made it to production.", "Implemented unit testing for projects that didn't exist previously.", "Designed and devloped a React monorepo shared my multiple clients with concepts of extending existing functionalities.", "Successfully migrated from Hibernate to JPA."]
+    },
+    {
+      "area": "Tata Consultancy Services",
+      "highlights": ["Wrote Python Scripts to quickly speed up the data ingestation"]
+    },
+    {
+      "area": "Etrigue",
+      "highlights": ["Modified SQL statement strings into more maintainable structure and ensuring specific queries aren't constantly repeated", "I assisted a senior software engineer and migrated from C# to Java code"]
+    },
+    {
+      "area": "Elio",
+      "highlights": ["From the existing prototype, I continued developing features requested and ensured code follows best practices."]
+    }
+  ],
+  "hobbies_and_lifestyle": {
+    "fitness": ["Rowing", "Swimming", "Badminton", "Tennis"],
+    "creative": [
+      "Digital Animation (Procreate)",
+      "Cooking (my creative outlet for flavor experimentation)",
+      "Painting"
+    ],
+    "personal": [
+      "Dog training (dedicated to my amazing adopted dog)",
+      "Climate change activism"
+    ]
+  }
+}
